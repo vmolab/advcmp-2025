@@ -32,9 +32,9 @@ if [ ! "$(docker ps -a -q -f name=$container_name)" ]; then
     fi
 
     docker run \
-        -v $(pwd)/$SCRIPT_DIR/../$directory_name/:/home/ubuntu/$directory_name \
-        -h $container_name --name $container_name -it --user ubuntu -d \
-        $image_name \
+        -v "$(pwd)/$SCRIPT_DIR/../$directory_name/:/home/ubuntu/$directory_name" \
+        -h "$container_name" --name "$container_name" -it --user ubuntu -d \
+        "$image_name" \
         tail -f /dev/null
 
 else
